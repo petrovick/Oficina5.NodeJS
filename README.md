@@ -50,7 +50,7 @@ pm2 save
 
 ### Libraries (brief):
 
-express-rate-limit: Prevents Brute Force Attack.
-express-brute: Prevent brute force on sessions.
-helmet: Protects app setting various HTTP headers.
-jsonwebtoken: Middleware JWT, garantee user is authenticated.
+express-rate-limit: Prevents Brute Force Attack.<br/>
+express-brute: Prevent brute force on sessions.<br/>
+helmet: Protects app setting various HTTP headers.<br/>
+jsonwebtoken: Middleware JWT, garantee user is authenticated.<br/>
