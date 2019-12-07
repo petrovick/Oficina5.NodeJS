@@ -5,7 +5,7 @@ class CommentController {
     console.log('Entrou no comment');
 
     const { id } = req.params;
-    const comments = await Comment.findAll({ where: { id } });
+    const comments = await Comment.findAll({ where: { postId: id } });
     return res.json(comments);
   }
 }

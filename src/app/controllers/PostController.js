@@ -1,5 +1,6 @@
 import { Exception } from 'handlebars';
 import Post from '../models/Post';
+import User from '../models/User';
 import Cache from '../../lib/cache';
 import PostApplication from '../application/PostApplication';
 
@@ -8,9 +9,26 @@ class PostController {
     const { id } = req.params;
     let posts = [];
     if (id) {
-      posts = await Post.findAll({ where: { id } });
+      posts = await Post.findAll({
+        where: { id },
+        include: [
+          {
+            model: User,
+            as: 'User',
+            attributes: ['idUser', 'name'],
+          },
+        ],
+      });
     } else {
-      posts = await Post.findAll();
+      posts = await Post.findAll({
+        include: [
+          {
+            model: User,
+            as: 'User',
+            attributes: ['idUser', 'name'],
+          },
+        ],
+      });
     }
     return res.json(posts);
   }

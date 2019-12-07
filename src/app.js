@@ -52,6 +52,7 @@ class App {
     this.app.use(cors()); // this.app.use(cors({origin: process.env.FRONT_URL,}));
     this.app.use(express.json());
 
+    // HABILITAR ANTES DE MANDAR
     if (process.env.NODE_ENV !== 'development') {
       this.app.use(
         new RateLimit({
@@ -61,11 +62,12 @@ class App {
               port: process.env.REDIS_PORT,
             }),
           }),
-          windowMs: 1000 * 60 * 15 /* 1000 * 60 = 1 min * 15 = 15 mins */,
+          windowMs: 1000 * 60 * 15, // 1000 * 60 = 1 min * 15 = 15 mins
           max: 1000,
         })
       );
     }
+
   }
 
   routes() {

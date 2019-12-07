@@ -28,6 +28,7 @@ const routes = new Router();
 routes.post('/users', validateUserStore, UserController.store);
 routes.post(
   '/sessions',
+  // HABILITAR ANTES DE MANDAR
   bruteForce.prevent,
   validateSessionStore,
   SessionController.store
@@ -43,6 +44,6 @@ routes.put('/posts/', PostUpdate, PostController.update);
 routes.delete('/posts/:id', PostController.delete);
 
 routes.get('/posts/:id/comments', CommentController.index);
-routes.get('/users/:userId/albuns', AlbumController.index);
+routes.get('/users/:userId/albums', AlbumController.index);
 
 export default routes;
